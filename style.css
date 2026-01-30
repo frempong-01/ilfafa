@@ -1,0 +1,253 @@
+/* --- GLOBAL RESETS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(235, 15, 51);
+    /* Strict viewport locking */
+    overflow: hidden; 
+    height: 100vh;
+    height: 100dvh; /* Better for mobile toolbars */
+    width: 100vw;
+    position: fixed; /* Prevents "pull-to-refresh" or rubber-banding on mobile */
+}
+
+/* --- SECTION TRANSITIONS --- */
+.section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Force section to match viewport exactly */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    background: #f1c9d1;
+    /* This ensures internal content doesn't push the section height out */
+    overflow: hidden; 
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+/* --- TYPOGRAPHY & BUTTONS --- */
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 18px;
+    font-size: 2rem; /* Default for mobile/base */
+}
+
+p {
+    max-width: 500px;
+    margin-bottom: 14px;
+    line-height: 1.7;
+    font-size: 16px;
+    color: #444;
+}
+
+button {
+    margin-top: 12px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff6f91, #e75480);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(231, 84, 128, 0.35);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(231, 84, 128, 0.45);
+}
+
+/* --- SECTION 1 SPECIFICS --- */
+.hero-bg {
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('rose.jpeg') center/cover no-repeat;
+    color: white;
+}
+
+.hero-bg p { color: #f1f1f1; }
+
+.profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* --- SECTION 5 SPECIFICS (THE ZIG ZAG LAYOUT) --- */
+.layout-container {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Added gap for better spacing control */
+}
+
+.media-item {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.media-item:hover {
+    transform: scale(1.05) !important;
+    z-index: 10;
+}
+
+/* Row Structures */
+.row-top, .row-middle, .row-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.pic-1 {
+    width: 45%; 
+    height: 150px;
+    transform: rotate(-4deg); 
+}
+
+.small-heart-text {
+    width: 45%;
+    font-family: 'Dancing Script', cursive;
+    color: #f50454;
+    font-size: 1.4rem;
+    animation: floatAnim 3s ease-in-out infinite;
+}
+
+.row-middle { justify-content: center; }
+
+.final-video {
+    width: 75%;
+    height: auto;
+    max-height: 250px;
+    border: 4px solid #fff;
+    box-shadow: 0 10px 20px rgba(232, 20, 90, 0.15);
+}
+
+.niky {
+    font-family: 'Dancing Script', cursive;
+}
+
+.big-heart-text {
+    width: 45%;
+    height: 80px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23F8BBD0'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    color: #d81b60;
+    font-size: 1.2rem;
+    animation: floatAnim 4s ease-in-out infinite reverse;
+}
+
+.pic-2 {
+    width: 45%;
+    height: 150px;
+    transform: rotate(4deg);
+}
+
+/* --- ANIMATIONS --- */
+@keyframes floatAnim {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+.heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 22px;
+    animation: floatUp 6s linear forwards;
+    opacity: 0.7;
+    z-index: 0;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* ============================================================
+   MEDIA QUERIES (RESPONSIVENESS)
+   ============================================================ */
+
+/* --- TABLETS (768px to 991px) --- */
+@media screen and (min-width: 768px) {
+    h1, h2 { font-size: 2.8rem; }
+    p { font-size: 18px; }
+    
+    .layout-container {
+        max-width: 650px;
+        gap: 30px;
+    }
+
+    .pic-1, .pic-2 { height: 180px; }
+    .small-heart-text { font-size: 2rem; }
+    .big-heart-text { font-size: 1.8rem; height: 100px; }
+}
+
+/* --- LAPTOPS (992px to 1199px) --- */
+@media screen and (min-width: 992px) {
+    h1, h2 { font-size: 3.2rem; }
+    
+    .layout-container {
+        max-width: 800px;
+    }
+
+    .pic-1, .pic-2 { height: 220px; }
+    .final-video { width: 60%; }
+}
+
+/* --- LARGE DESKTOPS (1200px and up) --- */
+@media screen and (min-width: 1200px) {
+    h1, h2 { font-size: 4rem; }
+    
+    .layout-container {
+        max-width: 1000px;
+    }
+    
+    .pic-1, .pic-2 { 
+        height: 250px;
+        max-height: 300px;
+    }
+}
+
+/* --- EXTRA ADJUSTMENTS FOR SMALL PHONES (Height restricted) --- */
+@media screen and (max-height: 600px) {
+    .section { padding: 10px; }
+    .profile-pic { width: 80px; height: 80px; margin-bottom: 10px; }
+    h1, h2 { font-size: 1.5rem; margin-bottom: 8px; }
+    p { font-size: 14px; margin-bottom: 8px; }
+    .layout-container { gap: 10px; }
+    .pic-1, .pic-2 { height: 100px; }
+}

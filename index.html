@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Someone Special ❤️</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <section id="page1" class="section hero-bg">
+        <img src="profile.jpeg" class="profile-pic" alt="Photo">
+        <h1>Hey you… ❤️</h1>
+        <p>I made something small, just for you.</p>
+        <button onclick="nextPage(1)">Tap to begin</button>
+    </section>
+
+    <section id="page2" class="section hidden">
+        <h2>There’s something about you…</h2>
+        <p>You make ordinary days feel special without even trying.</p>
+        <p>Your smile, your energy, your presence — they stay with me longer than you probably realize.</p>
+        <p>I just wanted to remind you of that today.</p>
+        <button onclick="nextPage(2)">Continue 💖</button>
+    </section>
+
+    <section id="page3" class="section hidden">
+        <h1>❤️</h1>
+        <h2>I’m not saying you’re the reason I smile more… but you’re definitely the main suspect🤭.</h2>
+        <button onclick="nextPage(3)">A bit closer…</button>
+    </section>
+
+    <section id="page4" class="section hidden">
+        <h1>Happy Valentine’s Day 💘</h1>
+        <p>Thank you for being you.</p>
+        <p>I’m really grateful to have you in my life.</p>
+        <h2 class="niky">- Annoying 🤭</h2>
+        <button onclick="nextPage(4)">See one last thing...</button>
+    </section>
+
+    <section id="page5" class="section hidden">
+        
+        <div class="layout-container">
+            
+            <div class="row-top">
+                <img src="pic 1.jpeg" alt="Pic 1" class="media-item pic-1">
+                <div class="small-heart-text">I &hearts; U</div>
+            </div>
+
+            <div class="row-middle">
+                <video id="finalVideo" class="media-item final-video" loop muted playsinline>
+                    <source src="vid.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="row-bottom">
+                <div class="big-heart-text">
+                    Love<br>you
+                </div>
+                <img src="pic2.jpeg" alt="Pic 2" class="media-item pic-2">
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
